@@ -1,0 +1,13 @@
+DROP TABLE IF EXISTS usuario;
+CREATE TABLE usuario (
+	nome Varchar(40),
+	login Varchar(30),
+	senha Varchar(40),
+	data_nascimento varchar(10),
+	sexo Varchar(10),
+	cpf varchar(20),
+	rg varchar(20),
+	unidade_federativa varchar(3),
+	endereço varchar(50),
+	CONSTRAINT pk_usuario PRIMARY KEY (cpf)
+);
