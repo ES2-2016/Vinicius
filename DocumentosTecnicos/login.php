@@ -2,12 +2,12 @@
   $login = $_POST['login'];
   $entrar = $_POST['entrar'];
   $senha = md5($_POST['senha']);
-  $connect = mysql_connect('localhost','root','root');
-  $db = mysql_select_db('memorial');
+  $connect = mysqli_connect('localhost','root','root');
+  $db = mysqli_select_db('memorial');
     if (isset($entrar)) {
             
-      $verifica = mysql_query("SELECT * FROM usuario WHERE login = '$login' AND senha = '$senha'") or die("erro ao selecionar");
-        if (mysql_num_rows($verifica)<=0){
+      $verifica = mysqli_query("SELECT * FROM usuario WHERE login = '$login' AND senha = '$senha'") or die("erro ao selecionar");
+        if (mysqli_num_rows($verifica)<=0){
           echo"<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.html';</script>";
           die();
         }else{

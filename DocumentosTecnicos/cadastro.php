@@ -1,5 +1,7 @@
 <?php 
+require_once("_con.php");
 
+$cadastrar = $_POST['cadastrar'];
 $login_usuario = $_POST['login'];
 $senha_usuario = MD5($_POST['senha']);
 $nome_usuario = $_POST['nome'];
@@ -10,34 +12,24 @@ $rg_usuario = $_POST['rg'];
 $estado_usuario = $_POST['unidade_federativa'];
 $end_usuario = $_POST['endereco'];
 
-$connect = mysql_connect('Dados','root','root');
-$db = mysql_select_db('memorial');
-$query_select = "SELECT login FROM usuarios WHERE login = '$login'";
-$select = mysql_query($query_select, $connect);
-$array = mysql_fetch_array($select);
-$logarray = $array['login'];
+$dbc = mysqli_connect($host,$user,$pass, $db);
 
-  if($login == "" || $login == null){
-    echo"<script language='javascript' type='text/javascript'>alert('O campo login deve ser preenchido.');window.location.href='cadastro.html';</script>";
+/* check connection */
+if (mysqli_connect_errno()) {
+    printf("Connect failed: %s\n", mysqli_connect_error());
+    exit();
+}
 
-    }else{
-      if($logarray == $login){
+$query = "INSERT INTO usuario VALUES ('$nome_usuario', '$login_usuario', '$senha_usuario', '$data_nascimento_usuario', '$sexo_usuario', '$cpf_usuario', '$rg_usuario', '$estado_usuario', '$end_usuario')";
 
-        echo"<script language='javascript' type='text/javascript'>alert('Desculpe, esse login já existe');window.location.href='cadastro.html';</script>";
-        die();
-
-      }else{
-        $query = INSERT INTO usuarios(nome, login, senha, data_nascimento, sexo, cpf, rg, unidade_federativa, endereço) VALUES ('$nome_usuario', '$login_usuario', '$senha_usuario', '$dat_nascimento_usuario', '$sexo_usuario', '$cpf_usuario', '$rg_usuario', '$estado_usuario', '$end_usuario');
-        $insert = mysql_query($query, $connect);
-        
-        if($insert){
-          echo"<script language='javascript' type='text/javascript'>alert('Usuário cadastrado com sucesso!');window.location.href='login.html'</script>";
-        }else{
-          echo"<script language='javascript' type='text/javascript'>alert('Desculpe, não foi possível cadastrar esse usuário');window.location.href='cadastro.html'</script>";
-        }
-      }
-    }
-
+mysqli_query($dbc, $query);
+mysqli_close($dbc);
+/*
+if($insert){
+header("Location: http://localhost/");
+}else{
+	echo"<script lenguage='javascript' type='text/javascript'>alert('Erro no cadastro'); window.location.href='../index.php';</script>";
+}*/
 
 
 ?>

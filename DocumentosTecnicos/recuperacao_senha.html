@@ -2,7 +2,7 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Random Login Form</title>
+  <title>Recuperar Senha</title>
       <style>
       /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
       @import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
@@ -48,7 +48,7 @@ body{
 .header{
 	position: absolute;
 	top: calc(50% - 35px);
-	left: calc(50% - 255px);
+	left: calc(40% - 255px);
 	z-index: 2;
 }
 
@@ -64,7 +64,7 @@ body{
 	color: #5379fa !important;
 }
 
-.login{
+.recuperar_senha{
 	position: absolute;
 	top: calc(50% - 75px);
 	left: calc(50% - 50px);
@@ -74,7 +74,7 @@ body{
 	z-index: 2;
 }
 
-.login input[type=text]{
+.recuperar_senha input[type=text]{
 	width: 250px;
 	height: 30px;
 	background: transparent;
@@ -87,7 +87,7 @@ body{
 	padding: 4px;
 }
 
-.login input[type=password]{
+.recuperar_senha input[type=password]{
 	width: 250px;
 	height: 30px;
 	background: transparent;
@@ -101,7 +101,7 @@ body{
 	margin-top: 10px;
 }
 
-.login input[type=submit]{
+.recuperar_senha input[type=submit]{
 	width: 260px;
 	height: 35px;
 	background: #fff;
@@ -116,25 +116,25 @@ body{
 	margin-top: 10px;
 }
 
-.login input[type=submit]:hover{
+.recuperar_senha input[type=submit]:hover{
 	opacity: 0.8;
 }
 
-.login input[type=submit]:active{
+.recuperar_senha input[type=submit]:active{
 	opacity: 0.6;
 }
 
-.login input[type=text]:focus{
+.recuperar_senha input[type=text]:focus{
 	outline: none;
 	border: 1px solid rgba(255,255,255,0.9);
 }
 
-.login input[type=password]:focus{
+.recuperar_senha input[type=password]:focus{
 	outline: none;
 	border: 1px solid rgba(255,255,255,0.9);
 }
 
-.login input[type=submit]:focus{
+.recuperar_senha input[type=submit]:focus{
 	outline: none;
 }
 
@@ -150,21 +150,19 @@ body{
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 
 </head>
-
 <body>
-<form method="POST" action="login.php">
+<form method="POST" action="recuperacao_senha.php">
 <div class="body"></div>
 		<div class="grad"></div>
 		<div class="header">
-			<div>Site<span> Memorial</span></div>
+			<div>Recuperar<span>Senha</span></div>
 		</div>
-		<br>
-		<div class="login">
-		<input type="text" placeholder="username"  name="login" id = "login"><br>
-		<input type="password" placeholder="password" name="senha" id="senha"><br>
-		<input type="submit" value="Entrar" id="cadastrar" name="cadastrar"><br>		
-		<a href="recuperacao_senha.html" type="submit">Esqueceu a senha?</a>
-		<a href="cadastro.html">Cadastre-se</a><br>	
+		<div class="recuperar_senha">
+		<input type="text" placeholder="Nome completo"  name="nome" id = "nome"><br>
+		<input type="text" placeholder="CPF" name="cpf" id="cpf"><br>
+		<input type="text" placeholder="Email" name="email" id="email"><br>
+		<input type="submit" value="Recuperar senha" id="recuperar_senha" name="recuperar_senha"><br>
+		<a href="login.html">Cancelar</a><br>		
 				
 </div>
 </form>
