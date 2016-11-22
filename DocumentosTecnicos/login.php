@@ -15,4 +15,5 @@
           header("Location:index.php");
         }
     }
+header('Location: pagina_inicial.html');
 ?>

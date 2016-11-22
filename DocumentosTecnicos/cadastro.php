@@ -3,7 +3,7 @@ require_once("_con.php");
 
 $cadastrar = $_POST['cadastrar'];
 $login_usuario = $_POST['login'];
-$senha_usuario = MD5($_POST['senha']);
+$senha_usuario = ($_POST['senha']);
 $nome_usuario = $_POST['nome'];
 $data_nascimento_usuario = $_POST['data_nascimento'];
 $sexo_usuario = $_POST['sexo'];
@@ -24,12 +24,6 @@ $query = "INSERT INTO usuario VALUES ('$nome_usuario', '$login_usuario', '$senha
 
 mysqli_query($dbc, $query);
 mysqli_close($dbc);
-/*
-if($insert){
-header("Location: http://localhost/");
-}else{
-	echo"<script lenguage='javascript' type='text/javascript'>alert('Erro no cadastro'); window.location.href='../index.php';</script>";
-}*/
 
 
 ?>
