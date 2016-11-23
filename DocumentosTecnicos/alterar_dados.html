@@ -2,7 +2,7 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Random pagina_inicial Form</title>
+  <title>Random alterar_dados Form</title>
       <style>
       /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
       @import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
@@ -47,8 +47,8 @@ body{
 
 .header{
 	position: absolute;
-	top: calc(46% - 35px);
-	left: calc(39% - 255px);
+	top: calc(50% - 35px);
+	left: calc(50% - 254px);
 	z-index: 2;
 }
 
@@ -64,7 +64,7 @@ body{
 	color: #5379fa !important;
 }
 
-.pagina_inicial{
+.alterar_dados{
 	position: absolute;
 	top: calc(50% - 75px);
 	left: calc(50% - 50px);
@@ -74,7 +74,7 @@ body{
 	z-index: 2;
 }
 
-.pagina_inicial input[type=text]{
+.alterar_dados input[type=text]{
 	width: 250px;
 	height: 30px;
 	background: transparent;
@@ -87,7 +87,7 @@ body{
 	padding: 4px;
 }
 
-.pagina_inicial input[type=password]{
+.alterar_dados input[type=password]{
 	width: 250px;
 	height: 30px;
 	background: transparent;
@@ -101,7 +101,7 @@ body{
 	margin-top: 10px;
 }
 
-.pagina_inicial input[type=submit]{
+.alterar_dados input[type=submit]{
 	width: 260px;
 	height: 35px;
 	background: #fff;
@@ -116,25 +116,25 @@ body{
 	margin-top: 10px;
 }
 
-.pagina_inicial input[type=submit]:hover{
+.alterar_dados input[type=submit]:hover{
 	opacity: 0.8;
 }
 
-.pagina_inicial input[type=submit]:active{
+.alterar_dados input[type=submit]:active{
 	opacity: 0.6;
 }
 
-.pagina_inicial input[type=text]:focus{
+.alterar_dados input[type=text]:focus{
 	outline: none;
 	border: 1px solid rgba(255,255,255,0.9);
 }
 
-.pagina_inicial input[type=password]:focus{
+.alterar_dados input[type=password]:focus{
 	outline: none;
 	border: 1px solid rgba(255,255,255,0.9);
 }
 
-.pagina_inicial input[type=submit]:focus{
+.alterar_dados input[type=submit]:focus{
 	outline: none;
 }
 
@@ -152,15 +152,20 @@ body{
 </head>
 
 <body>
-<form method="POST" action="alterar_dados.html">
+<form method="POST" action="alterar_dados.php">
 <div class="body"></div>
 		<div class="grad"></div>
 		<div class="header">
-			<div>Bem-vido ao<span> Memorial!</span></div>
+			<div>Alterar <span> dados!</span></div>
 		</div>
 		<br>
-		<div class="pagina_inicial">
-		<input type="submit" value="Alterar Dados" id="alterar_dados" name="alterar_dados"><br>		
+		<div class="alterar_dados">	
+		<input type="text" placeholder="Unidade Federativa"  name="unidade_federativa" id = "unidade_federativa"><br>
+		<input type="text" placeholder="Endereço" name="endereco" id = "endereco"><br>	
+		<input type="text" placeholder="Login" name="login" id = "login"><br>	
+		<input type="password" placeholder="Senha" name="senha" id = "senha"><br>	
+		<input type="submit" value="Alterar" id="alterar_dados" name="alterar_dados"><br>
+		<a href="pagina_inicial.html" type="submit">Cancelar</a>		
 				
 </div>
 </form>

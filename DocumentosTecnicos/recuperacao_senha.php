@@ -6,7 +6,7 @@ $nome = $_POST['nome'];
 $cpf = $_POST['cpf'];
 $email = $_POST['email'];
 $senha_do_usuario;
-$dbc = mysqli_connect($host,$user,$pass, $db);
+$dbc = mysqli_connect($host, $user, $pass, $db);
 
 /* check connection */
 if (mysqli_connect_errno()) {
