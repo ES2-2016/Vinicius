@@ -1,58 +1,190 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title> Cadastro de Usuário </title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<style>
-h1   {color: blue;}
-nav{
-	padding:0px;
-	margin:0px;
-	background-color:#EDEDED;
-	list-style:none;
+<title>Random Cadastro Form</title>
+      <style>
+      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+      @import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+
+body{
+	margin: 0;
+	padding: 0;
+	background: #fff;
+
+	color: #fff;
+	font-family: Arial;
+	font-size: 12px;
 }
-	
-</style>
+
+.body{
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	width: auto;
+	height: auto;
+	background-image: url(http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-008.jpg);
+	background-size: cover;
+	-webkit-filter: blur(5px);
+	z-index: 0;
+}
+
+.grad{
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	width: auto;
+	height: auto;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+	z-index: 1;
+	opacity: 0.7;
+}
+
+.header{
+	position: absolute;
+	top: calc(46% - 35px);
+	left: calc(39% - 255px);
+	z-index: 2;
+}
+
+.header div{
+	float: left;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 35px;
+	font-weight: 200;
+}
+
+.header div span{
+	color: #5379fa !important;
+}
+
+.cadastro{
+	position: absolute;
+	top: calc(50% - 75px);
+	left: calc(50% - 50px);
+	height: 150px;
+	width: 350px;
+	padding: 10px;
+	z-index: 2;
+}
+
+.cadastro input[type=text]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+}
+
+.cadastro input[type=date]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+}
+.cadastro input[type=password]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+	margin-top: 10px;
+}
+
+.cadastro input[type=submit]{
+	width: 260px;
+	height: 35px;
+	background: #fff;
+	border: 1px solid #fff;
+	cursor: pointer;
+	border-radius: 2px;
+	color: #a18d6c;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 6px;
+	margin-top: 10px;
+}
+
+
+.cadastro input[type=submit]:hover{
+	opacity: 0.8;
+}
+
+.cadastro input[type=submit]:active{
+	opacity: 0.6;
+}
+
+.cadastro input[type=text]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+.cadastro input[type=password]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+.cadastro input[type=submit]:focus{
+	outline: none;
+}
+
+::-webkit-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}
+
+::-moz-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}</style>
 
 <body>
 <form method="POST" action="cadastro.php">
+<div class="body"></div>
+		<div class="grad"></div>
+		<div class="header">
+			<div>Realizar <span>Cadastro</span></div>
+		</div>
+		<br>
+		<div class="cadastro">
+		<input type="text"  value = "Nome" name="nome" id="nome"><br>
+		<input type="date" value = "Data de nascimento" name="data_nascimento" id="data_nascimento"><br>
 
-<nav id="menu">
-	<ul>
-		<li><a href="#">Início</a></li>
-		<li><a href="#">Realizar Cadastro</a></li>
-	</ul>
-</nav>
+		<select name="sexo" id="sexo">
+  			<option value="feminino">Feminino</option>
+  			<option value="masculino">Masculino</option>
+		</select> 
 
-<h1 ALIGN=CENTER >Cadastro de Usuário</h1>
-<HR SIZE=1>
-
-<h4>Dados Pessoais</h4>
-<label style="font-size:100%;">Nome:</label><input type="text" name="nome" id="nome"><br>
-
-<label style="font-size:100%;">Data de nascimento:</label><input type="date" name="data_nascimento" id="data_nascimento"><br>
-
-<label style="font-size:100%;">Sexo:</label>
-<select name="sexo" id="sexo">
-  <option value="feminino">Feminino</option>
-  <option value="masculino">Masculino</option>
-</select> 
-
-<label style="font-size:100%;">CPF:</label><input type="text" name="cpf" id="cpf"><br>
-
-<label style="font-size:100%;">RG:</label><input type="text" name="rg" id="rg"><br>
-
-<label style="font-size:100%;">Unidade Federativa:</label><input type="text" name="unidade_federativa" id="unidade_federativa"><br>
-
-<label style="font-size:100%;">Endereco:</label><input type="text" name="endereco" id="endereco"><br>
-
-<h4>Dados para o Login</h4>
-<label style="font-size:100%;">Login:</label><input type="text" name="login" id="login"><br>
-
-<label style="font-size:100%;">Senha:</label><input type="password" name="senha" id="senha"><br>
-
-<input type="submit" value="Cadastrar" id="cadastrar" name="cadastrar" style="font-size:100%;">
-<input type="submit" value="Cancelar" id="cancelar" name="cancelar" style="font-size:100%;">
+		<input type="text" name="cpf" value = "CPF" id="cpf"><br>
+		<input type="text" value = "RG" name="rg" id="rg"><br>
+		<input type="text" value = "Estado" name="unidade_federativa" id="unidade_federativa"><br>
+		<input type="text" value = "Endereço"name="endereco" id="endereco"><br>
+		<input type="text" value = "login" name="login" id="login"><br>
+		<input type="password" value = "senha" name="senha" id="senha"><br>
+		<input type="submit" value="Cadastrar" id="cadastrar" name="cadastrar"><br>		
+		<a href="login.html">Cancelar</a><br>
+				
+</div>
 </form>
 </body>
 </html>
