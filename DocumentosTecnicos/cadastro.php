@@ -24,6 +24,7 @@ $query = "INSERT INTO usuario VALUES ('$nome_usuario', '$login_usuario', '$senha
 
 mysqli_query($dbc, $query);
 mysqli_close($dbc);
+header('Location: login.html')
 
 
 ?>
