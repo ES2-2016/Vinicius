@@ -1,15 +1,21 @@
 <?php 
+require_once("_con.php");
 $login = $_POST['login'];
 $senha = $_POST['senha'];
-$connect = mysqli_connect('localhost','root','root');
-$db = mysqli_select_db('memorial');
 
+if (!empty($_POST) AND (empty($_POST['login']) OR empty($_POST['senha']))){
+	echo("campos inválidos");      	
+	header("Location: login.html"); 
+	exit;
+}
 
+$connect = mysql_connect($host, $user, $pass) or trigger_error(mysql_error());
+$db = mysql_select_db($db) or trigger_error(mysql_error());
 $query = "SELECT * FROM usuario WHERE login = '$login' AND senha = '$senha'";
-$verifica = mysqli_query($query); 
-echo"LOGIN: $login";
-echo"SENHA: $senha";
-echo"QUERY: $query";
+$verifica = mysql_query($query); 
+
+$resultado = mysql_fetch_assoc($query);
+
 while($row = mysql_fetch_assoc($verifica)){
 	$unidade_ferativa = $row["unidade_federativa"];
 	$endereco = $row["endereço"];
@@ -31,28 +37,8 @@ if (mysql_num_rows($verifica) > 0){
 	unset ($_SESSION['endereço']);
        	//die();
 
-//	header("Location:index.php");
+	header("Location:index.php");
 }
 //header('Location: pagina_inicial.html');
-/*if (isset($entrar)) {
-            
-      $verifica = mysqli_query("SELECT * FROM usuario WHERE login = '$login' AND senha = '$senha'") or die("erro ao selecionar");
-var_dump($verifica);
-        if (mysqli_num_rows($verifica)<=0){
-        	echo"<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.html';</script>";
-		session_destroy();
-		unset ($_SESSION['login']=$login);
-		unset ($_SESSION['senha']=$_POST['senha']);
-          	die();
-		header("Location:index.php");
-        }else{
-	  	session_start();
-	  	$_SESSION['login']=$login;
-          	$_SESSION['senha']=$_POST['senha'];
-          
-		setcookie("login",$login);
-          	//header("Location:index.php");
-		header('Location: pagina_inicial.html');
-        }
-    }*/
+
 ?>

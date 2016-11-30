@@ -14,7 +14,6 @@ if (mysqli_connect_errno()) {
     exit();
 }
 $query = mysqli_query($dbc, "SELECT senha FROM usuario WHERE nome = '$nome' AND cpf = '$cpf'");
-
 mysqli_query($dbc, $query);
 $row = mysqli_fetch_row($query);
 var_dump($row);
